@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +8,10 @@
 
     <title>Register - Archive File Management System</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -39,6 +42,7 @@
             justify-content: flex-end;
             align-items: center;
             padding: 20px 60px 20px 20px;
+            isolation: isolate;
         }
 
         /* OVERLAY */
@@ -47,9 +51,10 @@
             inset: 0;
             background: rgba(7, 31, 55, 0.12);
             z-index: 1;
+            pointer-events: none;
         }
 
-        /* SOUTHERN PROVINCIAL COUNCIL HEADER */
+        /* HEADER */
         .header {
             position: absolute;
             top: 98px;
@@ -59,13 +64,13 @@
             z-index: 5;
         }
 
-        /* EMBLEM */
         .logo-box {
             width: 100px;
             height: 130px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
         }
 
         .logo-box img {
@@ -75,16 +80,15 @@
             transform: translateY(-26px);
         }
 
-        /* VERTICAL LINE */
         .vertical-line {
             width: 1px;
             height: 128px;
             background: #073d70;
             margin: 0 27px 0 15px;
             transform: translateY(-22px);
+            flex-shrink: 0;
         }
 
-        /* INSTITUTION TEXT */
         .institution {
             color: #083c6e;
         }
@@ -127,17 +131,17 @@
             z-index: 5;
             width: 690px;
             max-width: 94%;
-
-            /* Move register card upward */
             margin-top: -30px;
-
             padding: 30px 31px 19px;
+
             background: rgba(255, 255, 255, 0.97);
             border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: 21px;
+
             box-shadow:
                 0 20px 55px rgba(0, 0, 0, 0.30),
                 0 5px 20px rgba(0, 0, 0, 0.10);
+
             backdrop-filter: blur(12px);
             animation: cardAppear 0.7s ease;
         }
@@ -165,12 +169,15 @@
             height: 55px;
             margin: 0 auto 7px;
             border-radius: 15px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             background: linear-gradient(135deg, #0d6efd, #174a8b);
             color: white;
             font-size: 25px;
+
             box-shadow: 0 8px 20px rgba(13, 110, 253, 0.25);
         }
 
@@ -205,19 +212,21 @@
             margin-bottom: 4px;
         }
 
-        /* INPUT BOX */
         .input-box {
             height: 41px;
             display: flex;
             align-items: center;
+
             border: 1px solid #d9e1ea;
             border-radius: 10px;
             background: #f9fbfd;
+
             transition: all 0.25s ease;
         }
 
         .input-box > i:first-child {
             width: 42px;
+            flex-shrink: 0;
             text-align: center;
             color: #6d8ba8;
             font-size: 18px;
@@ -228,9 +237,11 @@
             flex: 1;
             min-width: 0;
             height: 100%;
+
             border: none;
             outline: none;
             background: transparent;
+
             font-family: 'Poppins', sans-serif;
             font-size: 15.5px;
             color: #26384a;
@@ -253,7 +264,7 @@
             box-shadow: 0 0 0 3px rgba(76, 142, 219, 0.10);
         }
 
-        /* TWO COLUMN ROW */
+        /* TWO COLUMNS */
         .two-column-row {
             width: 100%;
             display: grid;
@@ -343,17 +354,114 @@
             text-decoration: underline;
         }
 
+        /* ==========================================
+           BOTTOM BLUE CURVED BACKGROUND
+        ========================================== */
+        .bottom-curve {
+            position: absolute;
+            left: -5%;
+            bottom: -105px;
+            width: 62%;
+            height: 235px;
+
+            background: linear-gradient(
+                135deg,
+                #073861 0%,
+                #052b4d 55%,
+                #031f3d 100%
+            );
+
+            border-top: 2px solid rgba(112, 201, 242, 0.65);
+            border-radius: 50% 50% 0 0;
+            transform: rotate(-2deg);
+
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* ==========================================
+           BOTTOM LEFT FEATURES
+        ========================================== */
+        .features {
+            position: absolute;
+            bottom: 29px;
+            left: 4%;
+            width: 55%;
+
+            display: flex;
+            align-items: center;
+
+            z-index: 7;
+        }
+
+        .feature {
+            flex: 1;
+            min-width: 0;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: white;
+            padding: 0 13px;
+
+            border-right: 1px solid rgba(255, 255, 255, 0.35);
+        }
+
+        .feature:first-child {
+            padding-left: 0;
+        }
+
+        .feature:last-child {
+            border-right: none;
+        }
+
+        .feature i {
+            font-size: 23px;
+            min-width: 25px;
+            color: #ffffff;
+        }
+
+        .feature span {
+            font-size: 11px;
+            line-height: 1.7;
+            font-weight: 500;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 1200px) {
             .header {
                 left: 15%;
+            }
+
+            .features {
+                width: 50%;
+                left: 3%;
+            }
+
+            .feature {
+                padding: 0 9px;
+                gap: 7px;
+            }
+
+            .feature i {
+                font-size: 20px;
+                min-width: 22px;
+            }
+
+            .feature span {
+                font-size: 10px;
             }
         }
 
         @media (max-width: 900px) {
             .page {
                 justify-content: center;
+                flex-direction: column;
                 padding: 20px;
+                gap: 10px;
             }
 
             .header {
@@ -367,12 +475,55 @@
             .register-card {
                 margin-top: 0;
             }
+
+            .bottom-curve {
+                display: none;
+            }
+
+            .features {
+                position: relative;
+                left: auto;
+                bottom: auto;
+
+                width: 100%;
+                max-width: 600px;
+                margin: 20px auto 0;
+
+                padding: 22px 16px;
+
+                background: linear-gradient(
+                    135deg,
+                    #073861,
+                    #052b4d 55%,
+                    #031f3d
+                );
+
+                border-top: 2px solid rgba(112, 201, 242, 0.65);
+                border-radius: 16px;
+
+                box-shadow: 0 10px 28px rgba(0, 31, 61, 0.22);
+
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .feature {
+                flex: 1 1 40%;
+                padding: 8px;
+                border-right: none;
+            }
+
+            .feature:first-child {
+                padding-left: 8px;
+            }
+
+            .feature span {
+                font-size: 12px;
+            }
         }
 
         @media (max-width: 700px) {
             .page {
-                flex-direction: column;
-                justify-content: center;
                 padding: 20px;
             }
 
@@ -427,6 +578,33 @@
                 text-align: center;
                 transform: none;
                 margin-top: 15px;
+            }
+
+            .features {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 18px 12px;
+                padding: 20px 15px;
+            }
+
+            .feature {
+                padding: 0;
+                border: none;
+                gap: 9px;
+            }
+
+            .feature:first-child {
+                padding-left: 0;
+            }
+
+            .feature i {
+                font-size: 21px;
+                min-width: 23px;
+            }
+
+            .feature span {
+                font-size: 10px;
+                white-space: normal;
             }
         }
 
@@ -507,7 +685,6 @@
 
             <div class="form-grid">
 
-                <!-- FULL NAME -->
                 <div class="input-group">
                     <label for="fullName">Full Name</label>
                     <div class="input-box">
@@ -517,7 +694,6 @@
                     </div>
                 </div>
 
-                <!-- NIC NUMBER -->
                 <div class="input-group">
                     <label for="nic">NIC Number</label>
                     <div class="input-box">
@@ -527,7 +703,6 @@
                     </div>
                 </div>
 
-                <!-- EMAIL -->
                 <div class="input-group">
                     <label for="email">Email</label>
                     <div class="input-box">
@@ -537,7 +712,6 @@
                     </div>
                 </div>
 
-                <!-- DESIGNATION -->
                 <div class="input-group">
                     <label for="designation">Designation</label>
                     <div class="input-box">
@@ -547,7 +721,6 @@
                     </div>
                 </div>
 
-                <!-- SUBJECT NUMBER -->
                 <div class="input-group">
                     <label for="subjectNumber">Subject Number</label>
                     <div class="input-box">
@@ -565,9 +738,7 @@
                         <div class="input-box">
                             <i class="fa-solid fa-user-shield"></i>
                             <select id="userType" required>
-                                <option value="" disabled selected>
-                                    Select user type
-                                </option>
+                                <option value="" disabled selected>Select user type</option>
                                 <option value="Admin">Admin</option>
                                 <option value="Staff">Staff</option>
                                 <option value="User">User</option>
@@ -580,9 +751,7 @@
                         <div class="input-box">
                             <i class="fa-solid fa-building"></i>
                             <select id="department" required>
-                                <option value="" disabled selected>
-                                    Select department
-                                </option>
+                                <option value="" disabled selected>Select department</option>
                                 <option value="Institutions">Institutions</option>
                                 <option value="Councils">Councils</option>
                                 <option value="Accounts">Accounts</option>
@@ -592,7 +761,6 @@
 
                 </div>
 
-                <!-- USERNAME -->
                 <div class="input-group">
                     <label for="username">Username</label>
                     <div class="input-box">
@@ -602,7 +770,7 @@
                     </div>
                 </div>
 
-                <!-- PASSWORD AND CONFIRM PASSWORD -->
+                <!-- PASSWORD FIELDS -->
                 <div class="two-column-row">
 
                     <div class="input-group">
@@ -658,6 +826,34 @@
 
     </div>
 
+    <!-- BOTTOM BLUE CURVED BACKGROUND -->
+    <div class="bottom-curve"></div>
+
+    <!-- BOTTOM LEFT FEATURES -->
+    <div class="features">
+
+        <div class="feature">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Secure<br>Access</span>
+        </div>
+
+        <div class="feature">
+            <i class="fa-regular fa-file-lines"></i>
+            <span>Efficient<br>File Management</span>
+        </div>
+
+        <div class="feature">
+            <i class="fa-regular fa-folder-open"></i>
+            <span>Organized<br>Records</span>
+        </div>
+
+        <div class="feature">
+            <i class="fa-solid fa-users"></i>
+            <span>For a<br>Better Service</span>
+        </div>
+
+    </div>
+
 </div>
 
 <script>
@@ -704,4 +900,3 @@
 
 </body>
 </html>
-```
