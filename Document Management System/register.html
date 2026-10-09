@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,14 +45,14 @@
         .overlay {
             position: absolute;
             inset: 0;
-            background: rgba(7, 31, 55, 0.38);
+            background: rgba(7, 31, 55, 0.12);
             z-index: 1;
         }
 
         /* SOUTHERN PROVINCIAL COUNCIL HEADER */
         .header {
             position: absolute;
-            top: 70px;
+            top: 98px;
             left: 31%;
             display: flex;
             align-items: center;
@@ -72,18 +72,17 @@
             max-width: 88px;
             max-height: 120px;
             object-fit: contain;
-            transform: translateY(-24px);
+            transform: translateY(-26px);
         }
 
-        
         /* VERTICAL LINE */
         .vertical-line {
-            width: 2px;
+            width: 1px;
             height: 128px;
             background: #073d70;
             margin: 0 27px 0 15px;
-            transform: translateY(-20px);
-        }   
+            transform: translateY(-22px);
+        }
 
         /* INSTITUTION TEXT */
         .institution {
@@ -113,22 +112,26 @@
         /* TAGLINE */
         .institution .tagline {
             font-family: Georgia, serif;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 500;
             font-style: italic;
             color: #083c6e;
             margin-top: 36px;
             white-space: nowrap;
-            transform: translateX(-100px);
+            transform: translateX(-120px);
         }
 
         /* REGISTER CARD */
         .register-card {
             position: relative;
             z-index: 5;
-            width: 680px;
+            width: 690px;
             max-width: 94%;
-            padding: 22px 32px 19px;
+
+            /* Move register card upward */
+            margin-top: -30px;
+
+            padding: 30px 31px 19px;
             background: rgba(255, 255, 255, 0.97);
             border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: 21px;
@@ -167,7 +170,7 @@
             justify-content: center;
             background: linear-gradient(135deg, #0d6efd, #174a8b);
             color: white;
-            font-size: 24px;
+            font-size: 25px;
             box-shadow: 0 8px 20px rgba(13, 110, 253, 0.25);
         }
 
@@ -217,12 +220,13 @@
             width: 42px;
             text-align: center;
             color: #6d8ba8;
-            font-size: 17px;
+            font-size: 18px;
         }
 
         .input-box input,
         .input-box select {
             flex: 1;
+            min-width: 0;
             height: 100%;
             border: none;
             outline: none;
@@ -358,6 +362,10 @@
                 left: auto;
                 justify-content: center;
                 margin-bottom: 20px;
+            }
+
+            .register-card {
+                margin-top: 0;
             }
         }
 
@@ -696,3 +704,4 @@
 
 </body>
 </html>
+```
